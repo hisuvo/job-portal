@@ -13,7 +13,7 @@ export default function Navbar() {
   const Links = (
     <>
       <li>
-        <Link to={"/home"}>Home</Link>
+        <Link to={"/"}>Home</Link>
       </li>
       <li>
         <a>About</a>

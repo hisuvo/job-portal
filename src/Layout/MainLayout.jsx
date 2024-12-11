@@ -5,10 +5,16 @@ import Footer from "../pages/Shared/Footer/Footer";
 
 export default function MainLayout() {
   return (
-    <div>
-      <Navbar />
-      <Outlet />
-      <Footer />
+    <div className="max-w-7xl mx-auto flex flex-col min-h-screen">
+      <header className="flex-shrink-0">
+        <Navbar />
+      </header>
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <footer className="flex-shrink-0">
+        <Footer />
+      </footer>
     </div>
   );
 }

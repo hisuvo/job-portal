@@ -3,9 +3,13 @@ import Lottie from "lottie-react";
 import RegisterAnimatedData from "../../assets/register.json";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const frm = location?.state || "/";
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -20,6 +24,7 @@ export default function Register() {
     createUser(email, password)
       .then((res) => {
         console.log(res);
+        navigate(frm);
       })
       .catch((error) => {
         console.log(error.code);

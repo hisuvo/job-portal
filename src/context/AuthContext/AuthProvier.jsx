@@ -14,16 +14,19 @@ export default function AuthProvier({ children }) {
 
   // Sign Up
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Sign IN
   const signIn = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Sign Out
   const singOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -31,6 +34,7 @@ export default function AuthProvier({ children }) {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setLoading(false);
       } else {
         setUser(null);
       }
@@ -47,8 +51,6 @@ export default function AuthProvier({ children }) {
     signIn,
     singOut,
   };
-
-  console.log(user?.email);
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
