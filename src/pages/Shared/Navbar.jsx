@@ -16,7 +16,7 @@ export default function Navbar() {
         <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to={"/my-application"}>My Application</Link>
       </li>
     </>
   );

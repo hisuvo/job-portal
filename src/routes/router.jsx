@@ -6,6 +6,8 @@ import Register from "../Authentication/Register/Register";
 import Login from "../Authentication/Login/Login";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoute from "./privateRoute";
+import ApplicationForm from "../pages/ApplicationForm/ApplicationForm";
+import MyApplication from "../pages/MyApplication/MyApplication";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,22 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/jobs/${params.id}`),
+      },
+      {
+        path: "/application-form/:id",
+        element: (
+          <PrivateRoute>
+            <ApplicationForm />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-application",
+        element: (
+          <PrivateRoute>
+            <MyApplication />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/auth/register",

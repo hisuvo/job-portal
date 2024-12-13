@@ -42,7 +42,7 @@ export default function Register() {
             />
           </div>
 
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
             <form onSubmit={handleRegister} className="card-body">
               <h1 className="text-xl md:text-[3vw] font-bold">Register Now!</h1>
               {/* name */}
